@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/style.css" />
+    <title>Weather App HW 7</title>
+  </head>
+  <body>
+    <div class="weather-app">
+      <header>
+        <form class="search-form">
+          <input
+            type="search"
+            placeholder="Enter a city. . ."
+            required
+            class="search-form-input"
+          />
+          <input type="submit" value="search" class="search-form-button" />
+        </form>
+      </header>
+      <main>
+        <div class="weather-app-data">
+          <div>
+            <h1 class="weather-city">Vilseck</h1>
+            <p class="forecast-details">
+              Monday 18:11, Scattered Clouds
+              <br />
+              Humidity: <strong>42%</strong>, Wind: <strong>2:12km/h</strong>
+            </p>
+          </div>
+          <div class="temp-container">
+            <div class="weather-icon">🌥️</div>
+            <div class="weather-temp">15</div>
+            <div class="temp-unit">°C</div>
+          </div>
+        </div>
+      </main>
+
+      <footer>
+        This Project was coded by
+        <a href="" target="_blank">Krystal Feliciano</a>, is
+        <a href="" target="_blank">open sourced on GitHub</a>
+        and
+        <a href="" target="_blank">hosted on Netlify</a>
+      </footer>
+    </div>
+  </body>
+</html>
