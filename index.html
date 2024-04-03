@@ -11,12 +11,13 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="src/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
     <title>Weather App HW 7</title>
   </head>
   <body>
     <div class="weather-app">
       <header>
-        <form class="search-form">
+        <form class="search-form" id="search-form">
           <input
             type="search"
             placeholder="Enter a city. . ."
@@ -29,7 +30,7 @@
       <main>
         <div class="weather-app-data">
           <div>
-            <h1 class="weather-city">Vilseck</h1>
+            <h1 class="weather-city" id="city">Vilseck</h1>
             <p class="forecast-details">
               Monday 18:11, Scattered Clouds
               <br />
@@ -38,7 +39,7 @@
           </div>
           <div class="temp-container">
             <div class="weather-icon">🌥️</div>
-            <div class="weather-temp">15</div>
+            <div class="weather-temp" id="temperature">15</div>
             <div class="temp-unit">°C</div>
           </div>
         </div>

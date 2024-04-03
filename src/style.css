@@ -39,6 +39,12 @@ header {
   border-radius: 5px;
   color: #7289d7;
 }
+
+.search-form-button hover {
+  cursor: pointer;
+  color: #fffbfb00;
+  background-color: #475da6;
+}
 main {
   padding: 30px 0;
 }
@@ -63,7 +69,6 @@ main {
 
 .forecast-details strong {
   color: #3650a3;
-  
 }
 
 .temp-container {
