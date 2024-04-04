@@ -40,13 +40,21 @@ header {
   color: #7289d7;
 }
 
-.search-form-button hover {
+.search-form-button:hover {
   cursor: pointer;
-  color: #fffbfb00;
-  background-color: #475da6;
+  color: #f2eff8;
+  background-color: #7289d7;
 }
+
 main {
   padding: 30px 0;
+}
+
+.current-date {
+  font-size: 15px;
+  color: #475da6;
+  line-height: 22px;
+  font-weight: 400;
 }
 
 .weather-app-data {
@@ -76,13 +84,13 @@ main {
 }
 
 .weather-icon {
-  font-size: 40px;
-  margin-top: 20px;
+  font-size: 55px;
+  margin-top: 10px;
 }
 
 .weather-temp {
-  font-size: 75px;
-  margin-left: 15px;
+  font-size: 80px;
+  margin-left: 10px;
 }
 
 .weather-unit {
