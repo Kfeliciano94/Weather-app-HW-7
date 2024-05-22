@@ -46,7 +46,7 @@ function formatDate(date) {
 
 function searchCity(city) {
   let apiKey = "cd1d8fd1e2ab70a45dfof94bfcfd8t34";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(refreshWeather);
 }
 
@@ -57,6 +57,13 @@ function handleSearchSubmit(event) {
   searchCity(searchInput.value);
 }
 
+function formatDate(timestamp) {
+  let date = newDate(timestamp * 1000);
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[date.getDay()];
+}
+
 function getForecast(city) {
   let apiKey = "cd1d8fd1e2ab70a45dfof94bfcfd8t34";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
@@ -64,31 +71,31 @@ function getForecast(city) {
 }
 
 function displayForecast(response) {
-  let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
-  let forecastHtml = "weather-forecast";
+  let forecastHtml = "";
 
-  days.forEach(function (day) {
-    forecastHtml =
-      forecastHtml +
-      `
+  response.data.daily.forEach(function (day, index) {
+    if (index < 5) {
+      forecastHtml =
+        forecastHtml +
+        `
       <div class="weather-forecast-day">
-          <div class="weather-forecast-date">${formatDay(day.time)}</div>
-          <img src="${day.condition.icon_url}" class="weather-forecast-icon" />
-          <div class="weather-forecast-temperatures">
-            <div class="weather-forecast-temperature">
-              <strong>${Math.round(day.temperature.max)}°</strong>
-            </div>
-            <div class="weather-forecast-temperature">${Math.round(
-              day.temperature.min
-            )}°</div>
-          </div>
-        </div>
-        
-        `;
+      <div class="weather-forecast-date>${formatDay(day.time)}</div>
+      
+      <img src="${day.condition.icon_url}" class="weather-forecast-icon" />
+      <div class="weather-forecast-temperatures>
+      div class="weather-forecast-temperature">
+      <strong>${Math.round(day.temperature.max)}°</strong>
+      </div>
+      <div class="weather-forecast-temperature">${Math.round(
+        day.temperature.min
+      )}°</div>
+      </div>
+      </div>
+      `;
+    }
   });
 
   let forecastElement = document.querySelector("#forecast");
-
   forecastElement.innerHTML = forecastHtml;
 }
 
@@ -96,4 +103,3 @@ let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSearchSubmit);
 
 searchCity("Vilseck");
-getForecast();
